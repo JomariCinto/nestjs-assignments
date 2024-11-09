@@ -25,4 +25,17 @@ export class AppController {
     };
   }
 
+  @Get("assignment-2-prime-number/:number")
+  getPrimeNumber(@Param('number') number: string): { isPrime: boolean } {
+    const numbers = parseInt(number);
+
+    for (let i = 2; i <= Math.sqrt(numbers); i++) {
+      if (numbers % i === 0) {
+        return { "isPrime" : false }; 
+      }
+    }
+
+    return { "isPrime" : true }; 
+  }
+
 }
