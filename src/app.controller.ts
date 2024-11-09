@@ -38,4 +38,16 @@ export class AppController {
     return { "isPrime" : true }; 
   }
 
+  @Get("assignment-2-factorial/:number")
+  getFactorial(@Param('number') number: string): { factorial: number | string } {
+    const numbers = parseInt(number);
+    
+    let result = 1;
+    for (let num = 2; num <= numbers; num++) {
+      result *= num;
+    }
+
+    return { "factorial": result };
+  }
+
 }
